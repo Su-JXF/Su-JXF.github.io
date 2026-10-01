@@ -143,9 +143,10 @@ h1 em { font-style: italic; font-weight: 300; color: var(--muted); }
 .illus .fill-bg { fill: var(--illus-bg); }
 .illus .draw { stroke-dasharray: var(--len, 600); stroke-dashoffset: 0; }
 .illus .pulse { fill: var(--clay); }
-.portrait-col .interests { list-style: none; margin: 0; padding: 0 4px; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 16px; font-size: .85rem; color: var(--muted); }
-.portrait-col .interests li { display: flex; align-items: center; gap: 7px; }
-.portrait-col .interests li::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--clay); }
+.illus figcaption {
+  position: absolute; left: 12px; right: 12px; bottom: 16px; font-family: var(--mono); font-size: .68rem;
+  letter-spacing: .04em; text-transform: uppercase; color: var(--muted); text-align: center; white-space: nowrap;
+}
 
 /* ---------- Sections ---------- */
 .section { padding-block: clamp(64px, 9vw, 120px); border-top: 1px solid var(--line); }
@@ -284,12 +285,8 @@ h2 {
           <circle class="pulse" r="4" opacity="0"><set attributeName="opacity" to="1" begin="2.6s"/><animateMotion dur="3.6s" repeatCount="indefinite" begin="2.6s" keyPoints="1;0" keyTimes="0;1" calcMode="spline" keySplines=".4 0 .2 1"><mpath href="#e2"/></animateMotion></circle>
           <circle class="pulse" r="4" opacity="0"><set attributeName="opacity" to="1" begin="3.1s"/><animateMotion dur="3s" repeatCount="indefinite" begin="3.1s" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines=".4 0 .2 1"><mpath href="#e3"/></animateMotion></circle>
         </g></svg>
+        <figcaption aria-label="Research interests">Agent memory · Multi-agent · Self-evolving</figcaption>
       </figure>
-      <ul class="interests" aria-label="Research interests">
-        <li>Agent memory</li>
-        <li>Multi-agent collaboration</li>
-        <li>Self-evolving agents</li>
-      </ul>
       </div>
     </div>
   </section>
