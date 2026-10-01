@@ -129,8 +129,9 @@ h1 em { font-style: italic; font-weight: 300; color: var(--muted); }
 .actions { display: flex; flex-wrap: wrap; gap: 10px; }
 
 /* Illustration panel */
+.portrait-col { width: 100%; max-width: 340px; justify-self: center; display: grid; gap: 18px; min-width: 0; }
 .illus {
-  position: relative; aspect-ratio: 4 / 5; width: 100%; max-width: 340px; justify-self: center; margin: 0; border-radius: 24px;
+  position: relative; aspect-ratio: 4 / 5; width: 100%; margin: 0; border-radius: 24px;
   background: var(--illus-bg); overflow: hidden;
 }
 .illus svg { width: 100%; height: 100%; display: block; }
@@ -142,10 +143,9 @@ h1 em { font-style: italic; font-weight: 300; color: var(--muted); }
 .illus .fill-bg { fill: var(--illus-bg); }
 .illus .draw { stroke-dasharray: var(--len, 600); stroke-dashoffset: 0; }
 .illus .pulse { fill: var(--clay); }
-.illus figcaption {
-  position: absolute; left: 20px; bottom: 16px; font-family: var(--mono); font-size: .72rem;
-  letter-spacing: .06em; text-transform: uppercase; color: var(--muted);
-}
+.portrait-col .interests { list-style: none; margin: 0; padding: 0 4px; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 16px; font-size: .85rem; color: var(--muted); }
+.portrait-col .interests li { display: flex; align-items: center; gap: 7px; }
+.portrait-col .interests li::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--clay); }
 
 /* ---------- Sections ---------- */
 .section { padding-block: clamp(64px, 9vw, 120px); border-top: 1px solid var(--line); }
@@ -158,12 +158,6 @@ h2 {
 }
 .section-body { min-width: 0; }
 
-/* Research interests: a light strip under the hero, label + chips on one line */
-.interests-strip { border-top: 1px solid var(--line); padding-block: 22px; }
-.interests-strip .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; }
-.interests-strip h2 { font-family: var(--mono); font-size: .74rem; font-weight: 400; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0; }
-.interests { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-.interests li { padding: 5px 14px; border-radius: 999px; background: var(--surface); font-size: .9rem; }
 
 .empty-state {
   display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start;
@@ -263,9 +257,10 @@ h2 {
         </div>
       </div>
 
+      <div class="portrait-col rise" style="--i:3">
       <!-- Portrait slot. To use a photo, replace the <svg> below with:
-           <img class="portrait" src="/portrait.jpg" alt="Jingxuan Feng"> and remove the figcaption. -->
-      <figure class="illus rise" style="--i:3" aria-label="Illustration: three agents sharing a common memory">
+           <img class="portrait" src="/portrait.jpg" alt="Jingxuan Feng"> -->
+      <figure class="illus" aria-label="Illustration: three agents sharing a common memory">
         <svg viewBox="0 -50 400 500" role="img" aria-hidden="true"><g transform="translate(0 -10)">
           <!-- edges from agents to shared memory -->
           <path class="edge draw" id="e1" style="--len:160;--d:500" d="M110 118 C 150 150, 170 170, 186 196"/>
@@ -289,22 +284,17 @@ h2 {
           <circle class="pulse" r="4" opacity="0"><set attributeName="opacity" to="1" begin="2.6s"/><animateMotion dur="3.6s" repeatCount="indefinite" begin="2.6s" keyPoints="1;0" keyTimes="0;1" calcMode="spline" keySplines=".4 0 .2 1"><mpath href="#e2"/></animateMotion></circle>
           <circle class="pulse" r="4" opacity="0"><set attributeName="opacity" to="1" begin="3.1s"/><animateMotion dur="3s" repeatCount="indefinite" begin="3.1s" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines=".4 0 .2 1"><mpath href="#e3"/></animateMotion></circle>
         </g></svg>
-        <figcaption>Fig. 1 — Agents, shared memory</figcaption>
       </figure>
-    </div>
-  </section>
-
-
-  <section class="interests-strip" id="interests" aria-label="Research interests">
-    <div class="wrap reveal">
-      <h2>Research interests</h2>
-      <ul class="interests">
+      <ul class="interests" aria-label="Research interests">
         <li>Agent memory</li>
         <li>Multi-agent collaboration</li>
         <li>Self-evolving agents</li>
       </ul>
+      </div>
     </div>
   </section>
+
+
 
   <section class="section" id="research">
     <div class="wrap section-grid">
