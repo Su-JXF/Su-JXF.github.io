@@ -1,12 +1,402 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" href="/h3c.ico" as="image"/><link rel="preload" href="/inspur.ico" as="image"/><link rel="preload" href="/xjtlu.ico" as="image"/><link rel="stylesheet" href="/_next/static/css/index.Dhnt6SAv.css" data-rsc-css-href="/_next/static/css/index.Dhnt6SAv.css" data-precedence="vite-rsc/importer-resources"/><link rel="modulepreload" fetchPriority="low" href="/_next/static/chunks/index-HctV_bQD.js"/><script src="/_next/static/chunks/rolldown-runtime-C60lm6uB.js" type="module" async=""></script><script src="/_next/static/chunks/framework-D_rUT4EX.js" type="module" async=""></script><link rel="modulepreload" href="/_next/static/chunks/layout-segment-context-BFGZwXVa.js" crossorigin=""/><link rel="modulepreload" href="/_next/static/chunks/smooth-scroll-DB9l0Ox-.js" crossorigin=""/><link rel="modulepreload" href="/_next/static/chunks/theme-toggle-BRel65bd.js" crossorigin=""/><title>Jingxuan Feng — Academic Homepage</title><meta name="description" content="Jingxuan Feng is an undergraduate student at Xi’an Jiaotong-Liverpool University interested in agent memory, multi-agent systems, and post-training."/><script>(function(){try{var k='academic-homepage-theme';var v=localStorage.getItem(k);var d=v==='dark'||(!v&&matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.classList.toggle('dark',d);document.documentElement.style.colorScheme=d?'dark':'light'}catch(e){}})();</script><script>Object.assign(((self[Symbol.for("vinext.navigationRuntime")]??={bootstrap:{routeManifest:null},functions:{}}).bootstrap.rsc??={rsc:[]}),{params:{},nav:{"pathname":"/","searchParams":[]}})</script><link rel="modulepreload" href="/_next/static/chunks/index-HctV_bQD.js" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans&amp;display=swap" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&amp;display=swap" />
-<style data-vinext-fonts>.__font_dm_sans_0gqsji3 { font-family: 'DM Sans'; font-style: normal; }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jingxuan Feng</title>
+<meta name="description" content="Jingxuan Feng is an undergraduate student at Xi’an Jiaotong-Liverpool University working on agent memory, multi-agent systems, and self-evolving agents.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<script>
+  // Apply saved theme before paint to avoid a flash.
+  try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
+<style>
+/* Layout: one 1120px column; editorial two-track sections (label rail | content), generous ivory whitespace. */
+:root {
+  --ivory: #FAF9F5;
+  --surface: #F0EEE6;
+  --ink: #141413;
+  --muted: #6B6A64;
+  --line: #E3E0D6;
+  --clay: #D97757;
+  --clay-ink: #B5583A;
+  --illus-bg: #E8E2D2;
 
-.__variable_dm_sans_0gqsji3 { --font-sans-custom: 'DM Sans'; }
+  --serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
-.__font_cormorant_garamond_0uoainq { font-family: 'Cormorant Garamond'; font-style: normal; }
+  --ease: cubic-bezier(.22, .61, .36, 1);
+  --max: 1120px;
+  --gutter: clamp(20px, 5vw, 48px);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ivory: #1A1915; --surface: #24231F; --ink: #F0EEE6; --muted: #A3A096;
+    --line: #34332E; --clay: #E08A6A; --clay-ink: #E99A7C; --illus-bg: #2A2823;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --ivory: #1A1915; --surface: #24231F; --ink: #F0EEE6; --muted: #A3A096;
+  --line: #34332E; --clay: #E08A6A; --clay-ink: #E99A7C; --illus-bg: #2A2823;
+  color-scheme: dark;
+}
 
-.__variable_cormorant_garamond_0uoainq { --font-serif-custom: 'Cormorant Garamond'; }
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--ivory); color: var(--ink);
+  font-family: var(--sans); font-size: 16px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  transition: background-color .4s var(--ease), color .4s var(--ease);
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+::selection { background: color-mix(in srgb, var(--clay) 30%, transparent); }
+:focus-visible { outline: 2px solid var(--clay); outline-offset: 3px; border-radius: 4px; }
+
+.wrap { max-width: var(--max); margin: 0 auto; padding-inline: var(--gutter); }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--ivory) 82%, transparent);
+  backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: border-color .3s var(--ease);
+}
+.site-header.scrolled { border-bottom-color: var(--line); }
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; }
+.wordmark { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; letter-spacing: -0.01em; text-decoration: none; white-space: nowrap; }
+.nav { display: flex; align-items: center; gap: clamp(12px, 2.4vw, 28px); font-size: .9rem; }
+.nav a:not(.btn) { text-decoration: none; color: var(--muted); transition: color .2s var(--ease); }
+.nav a:not(.btn):hover { color: var(--ink); }
+.nav .nav-section { display: none; }
+@media (min-width: 640px) { .nav .nav-section { display: inline; } }
+.theme-toggle {
+  display: grid; place-items: center; width: 34px; height: 34px; padding: 0;
+  border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--ink); cursor: pointer;
+  transition: border-color .2s var(--ease), transform .4s var(--ease);
+}
+.theme-toggle:hover { border-color: var(--muted); }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .moon { display: none; }
+:root[data-theme="dark"] .theme-toggle .sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .moon { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .sun { display: none; }
+  :root:not([data-theme="light"]) .theme-toggle .moon { display: block; }
+}
+.btn {
+  display: inline-flex; align-items: center; gap: .45em; height: 44px; padding: 0 20px;
+  border-radius: 999px; border: 1px solid var(--line); font-size: .95rem; font-weight: 500;
+  text-decoration: none; color: var(--ink); background: transparent;
+  transition: background-color .25s var(--ease), border-color .25s var(--ease), color .25s var(--ease), transform .25s var(--ease);
+}
+.btn:hover, .btn:focus-visible { background: var(--ink); border-color: var(--ink); color: var(--ivory); }
+.btn .arrow { transition: transform .25s var(--ease); }
+.btn:hover .arrow { transform: translate(2px, -2px); }
+.nav .btn { height: 34px; padding: 0 14px; font-size: .85rem; }
+
+/* ---------- Hero ---------- */
+.hero { padding-block: clamp(56px, 10vw, 120px) clamp(64px, 9vw, 112px); }
+.hero-grid { display: grid; gap: clamp(40px, 6vw, 72px); align-items: center; }
+@media (min-width: 900px) { .hero-grid { grid-template-columns: 1.15fr 1fr; } }
+.hero-copy { min-width: 0; }
+.eyebrow {
+  font-family: var(--mono); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 28px; display: flex; align-items: center; gap: 10px;
+}
+.eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--clay); }
+h1 {
+  font-family: var(--serif); font-weight: 400; font-size: clamp(3rem, 8.4vw, 6rem);
+  line-height: 1; letter-spacing: -0.035em; margin: 0 0 28px; text-wrap: balance;
+}
+h1 em { font-style: italic; font-weight: 300; color: var(--muted); }
+.lede {
+  font-family: var(--serif); font-size: clamp(1.2rem, 2.1vw, 1.45rem); line-height: 1.5;
+  font-weight: 400; margin: 0 0 18px; max-width: 34em; text-wrap: pretty;
+}
+.lede a { text-decoration-color: color-mix(in srgb, var(--ink) 30%, transparent); text-underline-offset: 3px; transition: text-decoration-color .2s; }
+.lede a:hover { text-decoration-color: var(--clay); }
+.note { color: var(--muted); margin: 0 0 36px; max-width: 34em; font-size: 1rem; }
+.note strong { color: var(--clay-ink); font-weight: 500; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+/* Illustration panel */
+.illus {
+  position: relative; aspect-ratio: 4 / 5; width: 100%; max-width: 440px; justify-self: center; margin: 0; border-radius: 24px;
+  background: var(--illus-bg); overflow: hidden;
+}
+.illus svg { width: 100%; height: 100%; display: block; }
+.illus .portrait { width: 100%; height: 100%; object-fit: cover; }
+.illus .stroke { fill: none; stroke: var(--ink); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.illus .edge { fill: none; stroke: var(--ink); stroke-width: 1.6; stroke-linecap: round; }
+.illus .fill-clay { fill: var(--clay); }
+.illus .fill-ink { fill: var(--ink); }
+.illus .fill-bg { fill: var(--illus-bg); }
+.illus .draw { stroke-dasharray: var(--len, 600); stroke-dashoffset: 0; }
+.illus .pulse { fill: var(--clay); }
+.illus figcaption {
+  position: absolute; left: 20px; bottom: 16px; font-family: var(--mono); font-size: .72rem;
+  letter-spacing: .06em; text-transform: uppercase; color: var(--muted);
+}
+
+/* ---------- Sections ---------- */
+.section { padding-block: clamp(64px, 9vw, 120px); border-top: 1px solid var(--line); }
+.section-grid { display: grid; gap: 28px 48px; }
+@media (min-width: 900px) { .section-grid { grid-template-columns: 260px 1fr; } }
+.section-label { font-family: var(--mono); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+h2 {
+  font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 4.2vw, 2.9rem);
+  letter-spacing: -0.025em; line-height: 1.08; margin: 0; text-wrap: balance;
+}
+.section-body { min-width: 0; }
+
+.empty-state {
+  display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start;
+  padding: 28px; border-radius: 20px; background: var(--surface);
+}
+.empty-state .dot { width: 40px; height: 40px; border-radius: 12px; background: var(--ivory); display: grid; place-items: center; }
+.empty-state .dot span { width: 10px; height: 10px; border-radius: 50%; background: var(--clay); animation: breathe 2.8s var(--ease) infinite; }
+.empty-state h3 { font-family: var(--serif); font-weight: 500; font-size: 1.35rem; margin: 4px 0 6px; letter-spacing: -0.01em; }
+.empty-state p { margin: 0; color: var(--muted); max-width: 48ch; }
+@keyframes breathe { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(.6); opacity: .55; } }
+
+/* Journey: a single line threads the logos; it grows upward, oldest (bottom) to newest (top) */
+.journey { list-style: none; margin: 0; padding: 0; position: relative; }
+.journey li:not(:last-child)::before,
+.journey li:not(:last-child)::after {
+  content: ""; position: absolute; left: 21px; top: 44px; height: calc(100% - 44px + 40px); width: 1px; background: var(--line);
+}
+.journey li:not(:last-child)::after {
+  background: var(--clay); transform-origin: bottom; transform: scaleY(1);
+  transition: transform .9s var(--ease); transition-delay: calc(var(--step, 0) * 700ms + 200ms);
+}
+.js .journey:not(.in) li::after { transform: scaleY(0); }
+.journey li { position: relative; display: grid; grid-template-columns: 44px 1fr; gap: 2px 20px; align-items: start; }
+.journey li + li { margin-top: 40px; }
+.logo { position: relative; z-index: 1; width: 44px; height: 44px; border-radius: 50%; background: #FFFFFF; box-shadow: 0 0 0 6px var(--ivory), 0 0 0 7px var(--line); display: grid; place-items: center; }
+.logo img { width: 24px; height: 24px; object-fit: contain; }
+.journey .body { min-width: 0; padding-top: 2px; }
+.journey time { display: block; font-family: var(--mono); font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-variant-numeric: tabular-nums; margin-bottom: 4px; }
+.journey h3 { font-family: var(--serif); font-weight: 500; font-size: 1.45rem; letter-spacing: -0.01em; line-height: 1.2; margin: 0 0 6px; }
+.journey h3 a { text-decoration: none; background: linear-gradient(var(--clay), var(--clay)) 0 100% / 0 1px no-repeat; transition: background-size .35s var(--ease); }
+.journey h3 a:hover { background-size: 100% 1px; }
+.journey .desc { margin: 0; font-size: .9rem; color: var(--muted); max-width: 56ch; }
+.journey .desc b { font-weight: 500; color: var(--ink); }
+
+/* Quote */
+.quote { padding-block: clamp(80px, 12vw, 150px); border-top: 1px solid var(--line); }
+.quote blockquote {
+  margin: 0 auto; max-width: 22em; font-family: var(--serif); font-weight: 300;
+  font-size: clamp(2.4rem, 6vw, 4.2rem); line-height: 1.22; letter-spacing: -0.02em; text-align: center; text-wrap: balance;
+}
+.quote blockquote::before { content: "“"; display: block; color: var(--clay); font-size: 1.8em; line-height: .6; margin-bottom: 18px; }
+.quote p { text-align: center; color: var(--muted); margin: 28px 0 0; font-size: .95rem; }
+.quote i { font-family: var(--serif); font-size: 1.05em; }
+.quote cite { font-style: italic; font-family: var(--serif); font-size: 1.05em; }
+
+/* Footer */
+.site-footer { border-top: 1px solid var(--line); padding-block: 32px 48px; font-size: .9rem; color: var(--muted); }
+.site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; }
+.site-footer a { text-decoration: none; }
+.site-footer a:hover { color: var(--ink); }
+
+/* ---------- Motion ---------- */
+.rise { animation: rise .9s var(--ease) both; animation-delay: calc(var(--i, 0) * 90ms + 80ms); }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
+.js .reveal.in { opacity: 1; transform: none; }
+.js .illus .draw { stroke-dashoffset: var(--len, 600); animation: draw 1.8s var(--ease) forwards; animation-delay: calc(var(--d, 0) * 1ms + 300ms); }
+.js .illus .pop { transform-box: fill-box; transform-origin: center; animation: pop .7s var(--ease) both; animation-delay: calc(var(--d, 0) * 1ms + 300ms); }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes pop { from { transform: scale(0); } to { transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .js .reveal { opacity: 1; transform: none; }
+  .js .illus .draw { stroke-dashoffset: 0; }
+  .illus .pulse { display: none; }
+}
 </style>
-</head><body class="__variable_dm_sans_0gqsji3 __variable_cormorant_garamond_0uoainq"><main><header class="site-header"><a class="wordmark" href="#top" aria-label="Back to top"><span class="wordmark-mark">JF</span><span><strong>Jingxuan Feng</strong><small>Undergraduate student</small></span></a><nav aria-label="Primary navigation"><a href="#news">News</a><a href="#publications">Publications</a><a href="#journey">Journey</a><button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" title="Dark mode"><span class="theme-sun" aria-hidden="true">☀</span><span class="theme-moon" aria-hidden="true">☾</span></button><a class="nav-cv" href="/CV_2026_09.pdf" target="_blank" rel="noreferrer">CV ↗</a></nav></header><section class="hero shell" id="top"><div class="hero-copy"><p class="eyebrow hero-reveal delay-1">Agents · Memory · Language Models</p><p class="hello hero-reveal delay-2">Hello, I&#x27;m</p><h1 class="hero-reveal delay-3">Jingxuan Feng</h1><p class="native-name hero-reveal delay-4">Information and Computing Science</p><div class="intro hero-reveal delay-5"><p>I am an undergraduate student in Information and Computing Science at<!-- --> <a href="https://www.xjtlu.edu.cn/en/study/undergraduate/information-and-computing-science" target="_blank" rel="noreferrer">Xi’an Jiaotong-Liverpool University</a>.</p><p>My research interests include <strong>agent memory and multi-agent systems</strong>. I am also interested in exploring post-training methods for more capable and adaptive agents.</p><p class="opportunity-note">I&#x27;m actively looking for research opportunities—feel free to reach out.</p></div><div class="hero-links hero-reveal delay-6"><a class="button primary" href="mailto:jingxuan.f36@gmail.com">Email</a><span class="button is-muted" aria-label="Google Scholar profile coming soon">Scholar · soon</span><a class="button" href="https://github.com/Su-JXF" target="_blank" rel="noreferrer">GitHub ↗</a><a class="button" href="/CV_2026_09.pdf" target="_blank" rel="noreferrer">CV ↗</a></div></div><aside class="profile-card hero-reveal delay-5" aria-label="Profile summary"><div class="portrait-placeholder"><span>Portrait coming soon</span><strong>JF</strong><small>Jingxuan Feng</small></div><dl><div><dt>Based at</dt><dd>Xi’an Jiaotong-Liverpool University</dd></div><div><dt>Interests</dt><dd>Agent</dd></div><div><dt>Contact</dt><dd><a href="mailto:jingxuan.f36@gmail.com">Email me ↗</a></dd></div></dl></aside></section><section class="news-section shell" id="news" data-reveal="true"><div class="news-heading"><span>Latest updates</span><h2>Recent News</h2></div><div class="news-sheet"><p>Publication news will appear here.</p></div></section><section class="section shell" id="publications" data-reveal="true"><div class="section-title"><div><span>01</span><p>Research output</p></div><h2>Publications</h2></div><div class="publication-empty"><span aria-hidden="true">✦</span><div><h3>Work in progress</h3><p>Publications and manuscripts will be added here as they become available.</p></div></div></section><section class="section journey-section" id="journey"><div class="shell" data-reveal="true"><div class="section-title"><div><span>02</span><p>Education &amp; experience</p></div><h2>My Journey</h2></div><div class="journey-timeline"><article data-reveal="true"><div class="journey-date"><time>Jun — Aug 2026</time></div><div class="journey-mark"><span><img src="/h3c.ico" alt=""/></span></div><div class="journey-card"><a class="journey-title" href="https://www.h3c.com/en/" target="_blank" rel="noreferrer"><h3>H3C Group</h3></a><p class="journey-role">Large Language Model Algorithm Intern</p><p>Worked on emotion-conditioned generation for conversational agents.</p></div></article><article data-reveal="true"><div class="journey-date"><time>Summer 2025</time></div><div class="journey-mark"><span><img src="/inspur.ico" alt=""/></span></div><div class="journey-card"><h3 class="journey-title is-static">Inspur Ether Talent Program</h3><p class="journey-role">Program Participant</p><p>Developed LLM workflows for task decomposition and progress tracking.</p></div></article><article data-reveal="true"><div class="journey-date"><time>Sep 2024 — Jun 2028</time></div><div class="journey-mark"><span><img src="/xjtlu.ico" alt=""/></span></div><div class="journey-card"><a class="journey-title" href="https://www.xjtlu.edu.cn/en/study/undergraduate/information-and-computing-science" target="_blank" rel="noreferrer"><h3>Xi’an Jiaotong-Liverpool University</h3></a><p class="journey-role">BSc Information and Computing Science</p><p>Undergraduate study in computing, artificial intelligence, and software systems.</p></div></article></div></div></section><section class="quote-section shell" aria-label="Quotation" data-reveal="true"><blockquote>“It is not because things are difficult that we do not dare; it is because we do not dare that they are difficult.”</blockquote><p class="quote-source">— Seneca, <cite>Moral Letters to Lucilius</cite>, Letter 104</p></section><footer class="site-footer shell"><div><strong>Jingxuan Feng</strong><span>Academic homepage</span></div><p>© 2026 Jingxuan Feng</p><a href="#top">Back to top ↑</a></footer></main><script type="module" src="/_next/static/chunks/index-HctV_bQD.js" id="_R_" async=""></script><script>((self[Symbol.for("vinext.navigationRuntime")]??={bootstrap:{routeManifest:null},functions:{}}).bootstrap.rsc??={rsc:[]}).rsc.push("0:{\"page:/\":\"$L1\",\"layout:/\":\"$L2\",\"route:/\":\"$L3\",\"__route\":\"route:/\",\"__interceptionContext\":null,\"__layoutIds\":[\"layout:/\"],\"__rootLayout\":\"/\",\"__bfcacheSegmentIdentities\":{\"layout:/\":\"[\\\"layout\\\",\\\"layout:/\\\",\\\"root-boundary:/\\\",\\\"\\\"]\",\"page:/\":\"[\\\"page\\\",\\\"page:/\\\",\\\"root-boundary:/\\\",\\\"\\\"]\"},\"__srcPage\":[\"page\"],\"__layoutFlags\":{\"layout:/\":\"s\"},\"__artifactCompatibility\":{\"schemaVersion\":1,\"graphVersion\":\"app-route-graph:1177fd80f83fa7b0\",\"deploymentVersion\":\"bb4edaa5-e40b-4e69-b9c2-17b448daa22c\",\"appElementsSchemaVersion\":1,\"rscPayloadSchemaVersion\":1,\"rootBoundaryId\":\"/\",\"renderEpoch\":null}}\n")</script><script>((self[Symbol.for("vinext.navigationRuntime")]??={bootstrap:{routeManifest:null},functions:{}}).bootstrap.rsc??={rsc:[]}).rsc.push("4:I[\"a77329b94b08\",[],\"SmoothScroll\",1]\n")</script><script>((self[Symbol.for("vinext.navigationRuntime")]??={bootstrap:{routeManifest:null},functions:{}}).bootstrap.rsc??={rsc:[]}).rsc.push("5:I[\"8c0f216c4604\",[],\"Children\",1]\n")</script><script>((self[Symbol.for("vinext.navigationRuntime")]??={bootstrap:{routeManifest:null},functions:{}}).bootstrap.rsc??={rsc:[]}).rsc.push("6:I[\"593f344dc510\",[],\"GlobalErrorBoundary\",1]\n")</script><script>((self[Symbol.for("vinext.navigationRuntime")]??={bootstrap:{routeManifest:null},functions:{}}).bootstrap.rsc??={rsc:[]}).rsc.push("7:I[\"0b874ad30386\",[],\"default\",1]\n")</script><script>((self[Symbol.for("vinext.navigationRuntime")]??={bootstrap:{routeManifest:null},functions:{}}).bootstrap.rsc??={rsc:[]}).rsc.push("8:I[\"593f344dc510\",[],\"ErrorBoundary\",1]\n")</script><script>((self[Symbol.for("vinext.navigationRuntime")]??={bootstrap:{routeManifest:null},functions:{}}).bootstrap.rsc??={rsc:[]}).rsc.push("9:I[\"15c18cfaeeff\",[],\"LayoutSegmentProvider\",1]\n")</script><script>((self[Symbol.for("vinext.navigationRuntime")]??={bootstrap:{routeManifest:null},functions:{}}).bootstrap.rsc??={rsc:[]}).rsc.push("a:I[\"8c0f216c4604\",[],\"Slot\",1]\n")</script><script>((self[Symbol.for("vinext.navigationRuntime")]??={bootstrap:{routeManifest:null},functions:{}}).bootstrap.rsc??={rsc:[]}).rsc.push("b:I[\"593f344dc510\",[],\"NotFoundBoundary\",1]\n")</script><script>((self[Symbol.for("vinext.navigationRuntime")]??={bootstrap:{routeManifest:null},functions:{}}).bootstrap.rsc??={rsc:[]}).rsc.push("c:I[\"9276801271d6\",[],\"AppRouterScrollTarget\",1]\n")</script><script>((self[Symbol.for("vinext.navigationRuntime")]??={bootstrap:{routeManifest:null},functions:{}}).bootstrap.rsc??={rsc:[]}).rsc.push("d:I[\"593f344dc510\",[],\"RedirectBoundary\",1]\n")</script><script>((self[Symbol.for("vinext.navigationRuntime")]??={bootstrap:{routeManifest:null},functions:{}}).bootstrap.rsc??={rsc:[]}).rsc.push(":HL[\"/_next/static/css/index.Dhnt6SAv.css\",\"style\"     ]\n")</script><script>((self[Symbol.for("vinext.navigationRuntime")]??={bootstrap:{routeManifest:null},functions:{}}).bootstrap.rsc??={rsc:[]}).rsc.push("2:[[[\"$\",\"link\",\"css:/_next/static/css/index.Dhnt6SAv.css\",{\"rel\":\"stylesheet\",\"precedence\":\"vite-rsc/importer-resources\",\"href\":\"/_next/static/css/index.Dhnt6SAv.css\",\"data-rsc-css-href\":\"/_next/static/css/index.Dhnt6SAv.css\"}],\"$undefined\"],[\"$\",\"html\",null,{\"lang\":\"en\",\"suppressHydrationWarning\":true,\"children\":[[\"$\",\"head\",null,{\"children\":[\"$\",\"script\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"(function(){try{var k='academic-homepage-theme';var v=localStorage.getItem(k);var d=v==='dark'||(!v\u0026\u0026matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.classList.toggle('dark',d);document.documentElement.style.colorScheme=d?'dark':'light'}catch(e){}})();\"}}]}],[\"$\",\"body\",null,{\"className\":\"__variable_dm_sans_0gqsji3 __variable_cormorant_garamond_0uoainq\",\"children\":[[\"$\",\"$L4\",null,{}],[\"$\",\"$L5\",null,{}]]}]]}]]\n")</script><script>((self[Symbol.for("vinext.navigationRuntime")]??={bootstrap:{routeManifest:null},functions:{}}).bootstrap.rsc??={rsc:[]}).rsc.push("3:[[[\"$\",\"meta\",null,{\"charSet\":\"utf-8\"}],[[\"$\",\"title\",\"0\",{\"children\":\"Jingxuan Feng — Academic Homepage\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Jingxuan Feng is an undergraduate student at Xi’an Jiaotong-Liverpool University interested in agent memory, multi-agent systems, and post-training.\"}]],[[\"$\",\"meta\",\"0\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]],[\"$\",\"$L6\",null,{\"fallback\":\"$7\",\"children\":[\"$\",\"$L8\",null,{\"fallback\":\"$7\",\"children\":[\"$\",\"$L9\",null,{\"providerId\":\"layout:/\",\"segmentMap\":{\"children\":[]},\"children\":[\"$\",\"$La\",null,{\"id\":\"layout:/\",\"parallelSlots\":\"$undefined\",\"children\":[\"$\",\"$Lb\",null,{\"resetKey\":\"\",\"fallback\":[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],\"children\":[\"$\",\"$Lc\",null,{\"children\":[\"$\",\"$Ld\",null,{\"children\":[[\"$\",\"$L9\",null,{\"providerId\":\"page:/\",\"segmentMap\":{\"children\":[\"__PAGE__\"]},\"children\":[\"$\",\"$La\",null,{\"id\":\"page:/\"}]}],null]}]}]}]}]}]}]}],null,null]\n")</script><script>((self[Symbol.for("vinext.navigationRuntime")]??={bootstrap:{routeManifest:null},functions:{}}).bootstrap.rsc??={rsc:[]}).rsc.push("e:I[\"461672cbae33\",[],\"ThemeToggle\",1]\n")</script><script>((self[Symbol.for("vinext.navigationRuntime")]??={bootstrap:{routeManifest:null},functions:{}}).bootstrap.rsc??={rsc:[]}).rsc.push("1:[\"$\",\"main\",null,{\"children\":[[\"$\",\"header\",null,{\"className\":\"site-header\",\"children\":[[\"$\",\"a\",null,{\"className\":\"wordmark\",\"href\":\"#top\",\"aria-label\":\"Back to top\",\"children\":[[\"$\",\"span\",null,{\"className\":\"wordmark-mark\",\"children\":\"JF\"}],[\"$\",\"span\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"Jingxuan Feng\"}],[\"$\",\"small\",null,{\"children\":\"Undergraduate student\"}]]}]]}],[\"$\",\"nav\",null,{\"aria-label\":\"Primary navigation\",\"children\":[[\"$\",\"a\",null,{\"href\":\"#news\",\"children\":\"News\"}],[\"$\",\"a\",null,{\"href\":\"#publications\",\"children\":\"Publications\"}],[\"$\",\"a\",null,{\"href\":\"#journey\",\"children\":\"Journey\"}],[\"$\",\"$Le\",null,{}],[\"$\",\"a\",null,{\"className\":\"nav-cv\",\"href\":\"/CV_2026_09.pdf\",\"target\":\"_blank\",\"rel\":\"noreferrer\",\"children\":\"CV ↗\"}]]}]]}],[\"$\",\"section\",null,{\"className\":\"hero shell\",\"id\":\"top\",\"children\":[[\"$\",\"div\",null,{\"className\":\"hero-copy\",\"children\":[[\"$\",\"p\",null,{\"className\":\"eyebrow hero-reveal delay-1\",\"children\":\"Agents · Memory · Language Models\"}],[\"$\",\"p\",null,{\"className\":\"hello hero-reveal delay-2\",\"children\":\"Hello, I'm\"}],[\"$\",\"h1\",null,{\"className\":\"hero-reveal delay-3\",\"children\":\"Jingxuan Feng\"}],[\"$\",\"p\",null,{\"className\":\"native-name hero-reveal delay-4\",\"children\":\"Information and Computing Science\"}],[\"$\",\"div\",null,{\"className\":\"intro hero-reveal delay-5\",\"children\":[[\"$\",\"p\",null,{\"children\":[\"I am an undergraduate student in Information and Computing Science at\",\" \",[\"$\",\"a\",null,{\"href\":\"https://www.xjtlu.edu.cn/en/study/undergraduate/information-and-computing-science\",\"target\":\"_blank\",\"rel\":\"noreferrer\",\"children\":\"Xi’an Jiaotong-Liverpool University\"}],\".\"]}],[\"$\",\"p\",null,{\"children\":[\"My research interests include \",[\"$\",\"strong\",null,{\"children\":\"agent memory and multi-agent systems\"}],\". I am also interested in exploring post-training methods for more capable and adaptive agents.\"]}],[\"$\",\"p\",null,{\"className\":\"opportunity-note\",\"children\":\"I'm actively looking for research opportunities—feel free to reach out.\"}]]}],[\"$\",\"div\",null,{\"className\":\"hero-links hero-reveal delay-6\",\"children\":[[\"$\",\"a\",null,{\"className\":\"button primary\",\"href\":\"mailto:jingxuan.f36@gmail.com\",\"children\":\"Email\"}],[\"$\",\"span\",null,{\"className\":\"button is-muted\",\"aria-label\":\"Google Scholar profile coming soon\",\"children\":\"Scholar · soon\"}],[\"$\",\"a\",null,{\"className\":\"button\",\"href\":\"https://github.com/Su-JXF\",\"target\":\"_blank\",\"rel\":\"noreferrer\",\"children\":\"GitHub ↗\"}],[\"$\",\"a\",null,{\"className\":\"button\",\"href\":\"/CV_2026_09.pdf\",\"target\":\"_blank\",\"rel\":\"noreferrer\",\"children\":\"CV ↗\"}]]}]]}],[\"$\",\"aside\",null,{\"className\":\"profile-card hero-reveal delay-5\",\"aria-label\":\"Profile summary\",\"children\":[[\"$\",\"div\",null,{\"className\":\"portrait-placeholder\",\"children\":[[\"$\",\"span\",null,{\"children\":\"Portrait coming soon\"}],[\"$\",\"strong\",null,{\"children\":\"JF\"}],[\"$\",\"small\",null,{\"children\":\"Jingxuan Feng\"}]]}],[\"$\",\"dl\",null,{\"children\":[[\"$\",\"div\",null,{\"children\":[[\"$\",\"dt\",null,{\"children\":\"Based at\"}],[\"$\",\"dd\",null,{\"children\":\"Xi’an Jiaotong-Liverpool University\"}]]}],[\"$\",\"div\",null,{\"children\":[[\"$\",\"dt\",null,{\"children\":\"Interests\"}],[\"$\",\"dd\",null,{\"children\":\"Agent\"}]]}],[\"$\",\"div\",null,{\"children\":[[\"$\",\"dt\",null,{\"children\":\"Contact\"}],[\"$\",\"dd\",null,{\"children\":[\"$\",\"a\",null,{\"href\":\"mailto:jingxuan.f36@gmail.com\",\"children\":\"Email me ↗\"}]}]]}]]}]]}]]}],[\"$\",\"section\",null,{\"className\":\"news-section shell\",\"id\":\"news\",\"data-reveal\":true,\"children\":[[\"$\",\"div\",null,{\"className\":\"news-heading\",\"children\":[[\"$\",\"span\",null,{\"children\":\"Latest updates\"}],[\"$\",\"h2\",null,{\"children\":\"Recent News\"}]]}],[\"$\",\"div\",null,{\"className\":\"news-sheet\",\"children\":[\"$\",\"p\",null,{\"children\":\"Publication news will appear here.\"}]}]]}],[\"$\",\"section\",null,{\"className\":\"section shell\",\"id\":\"publications\",\"data-reveal\":true,\"children\":[[\"$\",\"div\",null,{\"className\":\"section-title\",\"children\":[[\"$\",\"div\",null,{\"children\":[[\"$\",\"span\",null,{\"children\":\"01\"}],[\"$\",\"p\",null,{\"children\":\"Research output\"}]]}],[\"$\",\"h2\",null,{\"children\":\"Publications\"}]]}],[\"$\",\"div\",null,{\"className\":\"publication-empty\",\"children\":[[\"$\",\"span\",null,{\"aria-hidden\":\"true\",\"children\":\"✦\"}],[\"$\",\"div\",null,{\"children\":[[\"$\",\"h3\",null,{\"children\":\"Work in progress\"}],[\"$\",\"p\",null,{\"children\":\"Publications and manuscripts will be added here as they become available.\"}]]}]]}]]}],[\"$\",\"section\",null,{\"className\":\"section journey-section\",\"id\":\"journey\",\"children\":[\"$\",\"div\",null,{\"className\":\"shell\",\"data-reveal\":true,\"children\":[[\"$\",\"div\",null,{\"className\":\"section-title\",\"children\":[[\"$\",\"div\",null,{\"children\":[[\"$\",\"span\",null,{\"children\":\"02\"}],[\"$\",\"p\",null,{\"children\":\"Education \u0026 experience\"}]]}],[\"$\",\"h2\",null,{\"children\":\"My Journey\"}]]}],\"$Lf\"]}]}],\"$L10\",\"$L11\"]}]\n")</script><script>((self[Symbol.for("vinext.navigationRuntime")]??={bootstrap:{routeManifest:null},functions:{}}).bootstrap.rsc??={rsc:[]}).rsc.push(":HL[\"/h3c.ico\",\"image\"]\n")</script><script>((self[Symbol.for("vinext.navigationRuntime")]??={bootstrap:{routeManifest:null},functions:{}}).bootstrap.rsc??={rsc:[]}).rsc.push(":HL[\"/inspur.ico\",\"image\"]\n")</script><script>((self[Symbol.for("vinext.navigationRuntime")]??={bootstrap:{routeManifest:null},functions:{}}).bootstrap.rsc??={rsc:[]}).rsc.push(":HL[\"/xjtlu.ico\",\"image\"]\n")</script><script>((self[Symbol.for("vinext.navigationRuntime")]??={bootstrap:{routeManifest:null},functions:{}}).bootstrap.rsc??={rsc:[]}).rsc.push("f:[\"$\",\"div\",null,{\"className\":\"journey-timeline\",\"children\":[[\"$\",\"article\",\"Jun — Aug 2026H3C Group\",{\"data-reveal\":true,\"children\":[[\"$\",\"div\",null,{\"className\":\"journey-date\",\"children\":[\"$\",\"time\",null,{\"children\":\"Jun — Aug 2026\"}]}],[\"$\",\"div\",null,{\"className\":\"journey-mark\",\"children\":[\"$\",\"span\",null,{\"children\":[\"$\",\"img\",null,{\"src\":\"/h3c.ico\",\"alt\":\"\"}]}]}],[\"$\",\"div\",null,{\"className\":\"journey-card\",\"children\":[[\"$\",\"a\",null,{\"className\":\"journey-title\",\"href\":\"https://www.h3c.com/en/\",\"target\":\"_blank\",\"rel\":\"noreferrer\",\"children\":[\"$\",\"h3\",null,{\"children\":\"H3C Group\"}]}],[\"$\",\"p\",null,{\"className\":\"journey-role\",\"children\":\"Large Language Model Algorithm Intern\"}],[\"$\",\"p\",null,{\"children\":\"Worked on emotion-conditioned generation for conversational agents.\"}]]}]]}],[\"$\",\"article\",\"Summer 2025Inspur Ether Talent Program\",{\"data-reveal\":true,\"children\":[[\"$\",\"div\",null,{\"className\":\"journey-date\",\"children\":[\"$\",\"time\",null,{\"children\":\"Summer 2025\"}]}],[\"$\",\"div\",null,{\"className\":\"journey-mark\",\"children\":[\"$\",\"span\",null,{\"children\":[\"$\",\"img\",null,{\"src\":\"/inspur.ico\",\"alt\":\"\"}]}]}],[\"$\",\"div\",null,{\"className\":\"journey-card\",\"children\":[[\"$\",\"h3\",null,{\"className\":\"journey-title is-static\",\"children\":\"Inspur Ether Talent Program\"}],[\"$\",\"p\",null,{\"className\":\"journey-role\",\"children\":\"Program Participant\"}],[\"$\",\"p\",null,{\"children\":\"Developed LLM workflows for task decomposition and progress tracking.\"}]]}]]}],[\"$\",\"article\",\"Sep 2024 — Jun 2028Xi’an Jiaotong-Liverpool University\",{\"data-reveal\":true,\"children\":[[\"$\",\"div\",null,{\"className\":\"journey-date\",\"children\":[\"$\",\"time\",null,{\"children\":\"Sep 2024 — Jun 2028\"}]}],[\"$\",\"div\",null,{\"className\":\"journey-mark\",\"children\":[\"$\",\"span\",null,{\"children\":[\"$\",\"img\",null,{\"src\":\"/xjtlu.ico\",\"alt\":\"\"}]}]}],[\"$\",\"div\",null,{\"className\":\"journey-card\",\"children\":[[\"$\",\"a\",null,{\"className\":\"journey-title\",\"href\":\"https://www.xjtlu.edu.cn/en/study/undergraduate/information-and-computing-science\",\"target\":\"_blank\",\"rel\":\"noreferrer\",\"children\":[\"$\",\"h3\",null,{\"children\":\"Xi’an Jiaotong-Liverpool University\"}]}],[\"$\",\"p\",null,{\"className\":\"journey-role\",\"children\":\"BSc Information and Computing Science\"}],[\"$\",\"p\",null,{\"children\":\"Undergraduate study in computing, artificial intelligence, and software systems.\"}]]}]]}]]}]\n")</script><script>((self[Symbol.for("vinext.navigationRuntime")]??={bootstrap:{routeManifest:null},functions:{}}).bootstrap.rsc??={rsc:[]}).rsc.push("10:[\"$\",\"section\",null,{\"className\":\"quote-section shell\",\"aria-label\":\"Quotation\",\"data-reveal\":true,\"children\":[[\"$\",\"blockquote\",null,{\"children\":\"“It is not because things are difficult that we do not dare; it is because we do not dare that they are difficult.”\"}],[\"$\",\"p\",null,{\"className\":\"quote-source\",\"children\":[\"— Seneca, \",[\"$\",\"cite\",null,{\"children\":\"Moral Letters to Lucilius\"}],\", Letter 104\"]}]]}]\n")</script><script>((self[Symbol.for("vinext.navigationRuntime")]??={bootstrap:{routeManifest:null},functions:{}}).bootstrap.rsc??={rsc:[]}).rsc.push("11:[\"$\",\"footer\",null,{\"className\":\"site-footer shell\",\"children\":[[\"$\",\"div\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"Jingxuan Feng\"}],[\"$\",\"span\",null,{\"children\":\"Academic homepage\"}]]}],[\"$\",\"p\",null,{\"children\":\"© 2026 Jingxuan Feng\"}],[\"$\",\"a\",null,{\"href\":\"#top\",\"children\":\"Back to top ↑\"}]]}]\n")</script><script>Object.assign(((self[Symbol.for("vinext.navigationRuntime")]??={bootstrap:{routeManifest:null},functions:{}}).bootstrap.rsc??={rsc:[]}),{"initialCacheKind":"static"});((self[Symbol.for("vinext.navigationRuntime")]??={bootstrap:{routeManifest:null},functions:{}}).bootstrap.rsc??={rsc:[]}).done=true</script></body></html>
+</head>
+<body>
+<header class="site-header" id="header">
+  <div class="wrap">
+    <a class="wordmark" href="#top" aria-label="Jingxuan Feng, back to top">Jingxuan Feng</a>
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-section" href="#research">Research</a>
+      <a class="nav-section" href="#journey">Journey</a>
+      <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      </button>
+      <a class="btn" href="/CV_2026_09.pdf" target="_blank" rel="noreferrer">CV <span class="arrow" aria-hidden="true">↗</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow rise" style="--i:0">Agents · Memory · Self-evolving</p>
+        <h1 class="rise" style="--i:1">Jingxuan Feng</h1>
+        <p class="lede rise" style="--i:2">I’m an undergraduate in Information and Computing Science at <a href="https://www.xjtlu.edu.cn/en/study/undergraduate/information-and-computing-science" target="_blank" rel="noreferrer">Xi’an Jiaotong-Liverpool University</a>. My research interests are agent memory and multi-agent systems, and I’m exploring self-evolving agents that keep improving through their own experience.</p>
+        <p class="note rise" style="--i:3"><strong>Open to research opportunities.</strong> Feel free to reach out.</p>
+        <div class="actions rise" style="--i:4">
+          <a class="btn" href="mailto:jingxuan.f36@gmail.com">Email</a>
+          <a class="btn" href="https://github.com/Su-JXF" target="_blank" rel="noreferrer">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="btn" href="/CV_2026_09.pdf" target="_blank" rel="noreferrer">CV <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <!-- Portrait slot. To use a photo, replace the <svg> below with:
+           <img class="portrait" src="/portrait.jpg" alt="Jingxuan Feng"> and remove the figcaption. -->
+      <figure class="illus rise" style="--i:3" aria-label="Illustration: three agents sharing a common memory">
+        <svg viewBox="0 -50 400 500" role="img" aria-hidden="true"><g transform="translate(0 -10)">
+          <!-- edges from agents to shared memory -->
+          <path class="edge draw" id="e1" style="--len:160;--d:500" d="M110 118 C 150 150, 170 170, 186 196"/>
+          <path class="edge draw" id="e2" style="--len:160;--d:650" d="M300 132 C 260 160, 238 180, 222 200"/>
+          <path class="edge draw" id="e3" style="--len:160;--d:800" d="M200 318 C 200 290, 202 270, 204 252"/>
+          <!-- memory: a stack of pages -->
+          <rect class="fill-clay pop" style="--d:200" x="158" y="178" width="96" height="76" rx="16"/>
+          <path class="stroke draw" style="--len:340;--d:300" d="M166 186 h80 a10 10 0 0 1 10 10 v52 a10 10 0 0 1 -10 10 h-80 a10 10 0 0 1 -10 -10 v-52 a10 10 0 0 1 10 -10z"/>
+          <path class="stroke draw" style="--len:60;--d:900" d="M176 210 h52"/>
+          <path class="stroke draw" style="--len:60;--d:1000" d="M176 226 h40"/>
+          <path class="stroke draw" style="--len:60;--d:1100" d="M176 242 h46"/>
+          <!-- agents -->
+          <circle class="fill-bg stroke draw" style="--len:200;--d:100" cx="96" cy="104" r="28"/>
+          <circle class="fill-ink pop" style="--d:600" cx="96" cy="104" r="7"/>
+          <circle class="fill-bg stroke draw" style="--len:200;--d:200" cx="312" cy="116" r="28"/>
+          <path class="fill-ink pop" style="--d:700" d="M312 108 l8 14 h-16z"/>
+          <circle class="fill-bg stroke draw" style="--len:200;--d:300" cx="200" cy="336" r="28"/>
+          <rect class="fill-ink pop" style="--d:800" x="193" y="329" width="14" height="14" rx="3"/>
+          <!-- messages travelling along edges -->
+          <circle class="pulse" r="4"><animateMotion dur="3.2s" repeatCount="indefinite" begin="2s" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines=".4 0 .2 1"><mpath href="#e1"/></animateMotion></circle>
+          <circle class="pulse" r="4"><animateMotion dur="3.6s" repeatCount="indefinite" begin="2.6s" keyPoints="1;0" keyTimes="0;1" calcMode="spline" keySplines=".4 0 .2 1"><mpath href="#e2"/></animateMotion></circle>
+          <circle class="pulse" r="4"><animateMotion dur="3s" repeatCount="indefinite" begin="3.1s" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines=".4 0 .2 1"><mpath href="#e3"/></animateMotion></circle>
+        </g></svg>
+        <figcaption>Fig. 1 — Agents, shared memory</figcaption>
+      </figure>
+    </div>
+  </section>
+
+
+  <section class="section" id="research">
+    <div class="wrap section-grid">
+      <div class="reveal">
+        <p class="section-label">Research</p>
+        <h2>Publications</h2>
+      </div>
+      <div class="section-body reveal">
+        <div class="empty-state">
+          <div class="dot" aria-hidden="true"><span></span></div>
+          <div>
+            <h3>Work in progress</h3>
+            <p>Papers and manuscripts will appear here as they become available.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="journey">
+    <div class="wrap section-grid">
+      <div class="reveal">
+        <p class="section-label">Education &amp; experience</p>
+        <h2>Journey</h2>
+      </div>
+      <ol class="journey section-body reveal">
+        <li style="--step:1">
+          <span class="logo"><img src="/h3c.ico" alt="" width="24" height="24"></span>
+          <div class="body">
+            <time>Jun – Aug 2026</time>
+            <h3><a href="https://www.h3c.com/en/" target="_blank" rel="noreferrer">H3C Group</a></h3>
+            <p class="desc"><b>LLM Algorithm Intern</b> · Emotion-conditioned generation for conversational agents.</p>
+          </div>
+        </li>
+        <li style="--step:0">
+          <span class="logo"><img src="/inspur.ico" alt="" width="24" height="24"></span>
+          <div class="body">
+            <time>Summer 2025</time>
+            <h3>Inspur Ether Talent Program</h3>
+            <p class="desc"><b>Program Participant</b> · LLM workflows for task decomposition and progress tracking.</p>
+          </div>
+        </li>
+        <li>
+          <span class="logo"><img src="/xjtlu.ico" alt="" width="24" height="24"></span>
+          <div class="body">
+            <time>Sep 2024 – Jun 2028</time>
+            <h3><a href="https://www.xjtlu.edu.cn/en/study/undergraduate/information-and-computing-science" target="_blank" rel="noreferrer">Xi’an Jiaotong-Liverpool University</a></h3>
+            <p class="desc"><b>BSc Information and Computing Science</b> · Computing, artificial intelligence, and software systems.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="quote" aria-label="Quotation">
+    <div class="wrap reveal">
+      <blockquote lang="la">Per aspera ad astra.</blockquote>
+      <p>Through hardships to the stars · after Seneca, <cite>Hercules Furens</cite></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 Jingxuan Feng</span>
+    <a href="#top">Back to top ↑</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  root.classList.add('js');
+
+  // Theme toggle: flips relative to what is currently shown, remembers the choice.
+  var btn = document.getElementById('theme-toggle');
+  function isDark() {
+    var t = root.dataset.theme;
+    return t ? t === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  function sync() { btn.setAttribute('aria-pressed', String(isDark())); }
+  btn.addEventListener('click', function () {
+    var next = isDark() ? 'light' : 'dark';
+    root.dataset.theme = next;
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    sync();
+  });
+  sync();
+
+  // Header hairline once the page scrolls.
+  var header = document.getElementById('header');
+  function onScroll() { header.classList.toggle('scrolled', window.scrollY > 8); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Scroll reveal; anything already on screen shows immediately.
+  var items = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  items.forEach(function (el, i) {
+    io.observe(el);
+  });
+})();
+</script>
+</body>
+</html>
