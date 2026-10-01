@@ -158,13 +158,12 @@ h2 {
 }
 .section-body { min-width: 0; }
 
-/* Research interests: one line per topic, hairline between rows */
-.interests { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
-.interests li {
-  display: flex; align-items: baseline; gap: 14px; padding-block: 18px; border-bottom: 1px solid var(--line);
-  font-family: var(--serif); font-size: clamp(1.15rem, 2vw, 1.4rem); letter-spacing: -0.01em; line-height: 1.3; min-width: 0;
-}
-.interests li::before { content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--clay); transform: translateY(-.2em); }
+/* Research interests: a light strip under the hero, label + chips on one line */
+.interests-strip { border-top: 1px solid var(--line); padding-block: 22px; }
+.interests-strip .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; }
+.interests-strip h2 { font-family: var(--mono); font-size: .74rem; font-weight: 400; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0; }
+.interests { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.interests li { padding: 5px 14px; border-radius: 999px; background: var(--surface); font-size: .9rem; }
 
 .empty-state {
   display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start;
@@ -238,7 +237,6 @@ h2 {
   <div class="wrap">
     <a class="wordmark" href="#top" aria-label="Jingxuan Feng, back to top">Jingxuan Feng</a>
     <nav class="nav" aria-label="Primary">
-      <a class="nav-section" href="#interests">Interests</a>
       <a class="nav-section" href="#research">Publications</a>
       <a class="nav-section" href="#journey">Journey</a>
       <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Toggle dark mode">
@@ -297,16 +295,13 @@ h2 {
   </section>
 
 
-  <section class="section" id="interests">
-    <div class="wrap section-grid">
-      <div class="reveal">
-        <p class="section-label">Focus</p>
-        <h2>Research interests</h2>
-      </div>
-      <ul class="interests section-body reveal">
-        <li>Memory mechanisms for LLM agents</li>
-        <li>Multi-agent collaboration and coordination</li>
-        <li>Self-evolving agents that learn from experience</li>
+  <section class="interests-strip" id="interests" aria-label="Research interests">
+    <div class="wrap reveal">
+      <h2>Research interests</h2>
+      <ul class="interests">
+        <li>Agent memory</li>
+        <li>Multi-agent collaboration</li>
+        <li>Self-evolving agents</li>
       </ul>
     </div>
   </section>
