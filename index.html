@@ -170,15 +170,15 @@ h2 {
 .empty-state p { margin: 0; color: var(--muted); max-width: 48ch; }
 @keyframes breathe { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(.6); opacity: .55; } }
 
-/* Journey: a single line threads the logos, oldest at the bottom */
+/* Journey: a single line threads the logos; it grows upward, oldest (bottom) to newest (top) */
 .journey { list-style: none; margin: 0; padding: 0; position: relative; }
 .journey li:not(:last-child)::before,
 .journey li:not(:last-child)::after {
   content: ""; position: absolute; left: 21px; top: 44px; height: calc(100% - 44px + 40px); width: 1px; background: var(--line);
 }
 .journey li:not(:last-child)::after {
-  background: var(--clay); transform-origin: top; transform: scaleY(1);
-  transition: transform .9s var(--ease); transition-delay: calc(var(--i, 0) * 600ms + 200ms);
+  background: var(--clay); transform-origin: bottom; transform: scaleY(1);
+  transition: transform .9s var(--ease); transition-delay: calc(var(--step, 0) * 700ms + 200ms);
 }
 .js .journey:not(.in) li::after { transform: scaleY(0); }
 .journey li { position: relative; display: grid; grid-template-columns: 44px 1fr; gap: 2px 20px; align-items: start; }
@@ -315,7 +315,7 @@ h2 {
         <h2>Journey</h2>
       </div>
       <ol class="journey section-body reveal">
-        <li style="--i:0">
+        <li style="--step:1">
           <span class="logo"><img src="/h3c.ico" alt="" width="24" height="24"></span>
           <div class="body">
             <time>Jun – Aug 2026</time>
@@ -323,7 +323,7 @@ h2 {
             <p class="desc"><b>LLM Algorithm Intern</b> · Emotion-conditioned generation for conversational agents.</p>
           </div>
         </li>
-        <li style="--i:1">
+        <li style="--step:0">
           <span class="logo"><img src="/inspur.ico" alt="" width="24" height="24"></span>
           <div class="body">
             <time>Summer 2025</time>
@@ -331,7 +331,7 @@ h2 {
             <p class="desc"><b>Program Participant</b> · LLM workflows for task decomposition and progress tracking.</p>
           </div>
         </li>
-        <li style="--i:2">
+        <li>
           <span class="logo"><img src="/xjtlu.ico" alt="" width="24" height="24"></span>
           <div class="body">
             <time>Sep 2024 – Jun 2028</time>
