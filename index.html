@@ -104,33 +104,33 @@ a { color: inherit; }
 .nav .btn { height: 34px; padding: 0 14px; font-size: .85rem; }
 
 /* ---------- Hero ---------- */
-.hero { padding-block: clamp(56px, 10vw, 120px) clamp(64px, 9vw, 112px); }
-.hero-grid { display: grid; gap: clamp(40px, 6vw, 72px); align-items: center; }
-@media (min-width: 900px) { .hero-grid { grid-template-columns: 1.15fr 1fr; } }
+.hero { padding-block: clamp(64px, 11vw, 136px) clamp(72px, 10vw, 128px); }
+.hero-grid { display: grid; gap: clamp(48px, 8vw, 112px); align-items: center; }
+@media (min-width: 900px) { .hero-grid { grid-template-columns: 1fr 340px; } }
 .hero-copy { min-width: 0; }
 .eyebrow {
   font-family: var(--mono); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase;
-  color: var(--muted); margin: 0 0 28px; display: flex; align-items: center; gap: 10px;
+  color: var(--muted); margin: 0 0 32px; display: flex; align-items: center; gap: 10px;
 }
-.eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--clay); }
+.eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--clay); box-shadow: 0 0 0 0 color-mix(in srgb, var(--clay) 50%, transparent); animation: ping 2.4s var(--ease) infinite; }
+@keyframes ping { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--clay) 45%, transparent); } 80%, 100% { box-shadow: 0 0 0 8px transparent; } }
 h1 {
-  font-family: var(--serif); font-weight: 400; font-size: clamp(3rem, 8.4vw, 6rem);
+  font-family: var(--serif); font-weight: 400; font-size: clamp(2.9rem, 7vw, 5.25rem);
   line-height: 1; letter-spacing: -0.035em; margin: 0 0 28px; text-wrap: balance;
 }
 h1 em { font-style: italic; font-weight: 300; color: var(--muted); }
 .lede {
-  font-family: var(--serif); font-size: clamp(1.2rem, 2.1vw, 1.45rem); line-height: 1.5;
-  font-weight: 400; margin: 0 0 18px; max-width: 34em; text-wrap: pretty;
+  font-family: var(--serif); font-size: clamp(1.15rem, 1.8vw, 1.3rem); line-height: 1.55;
+  font-weight: 400; color: var(--muted); margin: 0 0 40px; max-width: 30em; text-wrap: pretty;
 }
 .lede a { text-decoration-color: color-mix(in srgb, var(--ink) 30%, transparent); text-underline-offset: 3px; transition: text-decoration-color .2s; }
 .lede a:hover { text-decoration-color: var(--clay); }
-.note { color: var(--muted); margin: 0 0 36px; max-width: 34em; font-size: 1rem; }
-.note strong { color: var(--clay-ink); font-weight: 500; }
+.lede a { color: var(--ink); }
 .actions { display: flex; flex-wrap: wrap; gap: 10px; }
 
 /* Illustration panel */
 .illus {
-  position: relative; aspect-ratio: 4 / 5; width: 100%; max-width: 440px; justify-self: center; margin: 0; border-radius: 24px;
+  position: relative; aspect-ratio: 4 / 5; width: 100%; max-width: 340px; justify-self: center; margin: 0; border-radius: 24px;
   background: var(--illus-bg); overflow: hidden;
 }
 .illus svg { width: 100%; height: 100%; display: block; }
@@ -157,6 +157,13 @@ h2 {
   letter-spacing: -0.025em; line-height: 1.08; margin: 0; text-wrap: balance;
 }
 .section-body { min-width: 0; }
+
+/* Research interests: three equal columns, hairline above each */
+.interests { list-style: none; margin: 0; padding: 0; display: grid; gap: 28px 32px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.interests li { border-top: 1px solid var(--line); padding-top: 20px; min-width: 0; }
+.interests h3 { font-family: var(--serif); font-weight: 500; font-size: 1.4rem; letter-spacing: -0.01em; line-height: 1.2; margin: 0 0 8px; display: flex; align-items: center; gap: 10px; }
+.interests h3::before { content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--clay); }
+.interests p { margin: 0; font-size: .9rem; color: var(--muted); }
 
 .empty-state {
   display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start;
@@ -230,7 +237,8 @@ h2 {
   <div class="wrap">
     <a class="wordmark" href="#top" aria-label="Jingxuan Feng, back to top">Jingxuan Feng</a>
     <nav class="nav" aria-label="Primary">
-      <a class="nav-section" href="#research">Research</a>
+      <a class="nav-section" href="#interests">Interests</a>
+      <a class="nav-section" href="#research">Publications</a>
       <a class="nav-section" href="#journey">Journey</a>
       <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Toggle dark mode">
         <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"/></svg>
@@ -245,11 +253,10 @@ h2 {
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow rise" style="--i:0">Agents · Memory · Self-evolving</p>
+        <p class="eyebrow rise" style="--i:0">Open to research opportunities</p>
         <h1 class="rise" style="--i:1">Jingxuan Feng</h1>
-        <p class="lede rise" style="--i:2">I’m an undergraduate in Information and Computing Science at <a href="https://www.xjtlu.edu.cn/en/study/undergraduate/information-and-computing-science" target="_blank" rel="noreferrer">Xi’an Jiaotong-Liverpool University</a>. My research interests are agent memory and multi-agent systems, and I’m exploring self-evolving agents that keep improving through their own experience.</p>
-        <p class="note rise" style="--i:3"><strong>Open to research opportunities.</strong> Feel free to reach out.</p>
-        <div class="actions rise" style="--i:4">
+        <p class="lede rise" style="--i:2">Undergraduate in Information and Computing Science at <a href="https://www.xjtlu.edu.cn/en/study/undergraduate/information-and-computing-science" target="_blank" rel="noreferrer">Xi’an Jiaotong-Liverpool University</a>, studying agents that remember, collaborate, and evolve.</p>
+        <div class="actions rise" style="--i:3">
           <a class="btn" href="mailto:jingxuan.f36@gmail.com">Email</a>
           <a class="btn" href="https://github.com/Su-JXF" target="_blank" rel="noreferrer">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
           <a class="btn" href="/CV_2026_09.pdf" target="_blank" rel="noreferrer">CV <span class="arrow" aria-hidden="true">↗</span></a>
@@ -278,15 +285,29 @@ h2 {
           <circle class="fill-bg stroke draw" style="--len:200;--d:300" cx="200" cy="336" r="28"/>
           <rect class="fill-ink pop" style="--d:800" x="193" y="329" width="14" height="14" rx="3"/>
           <!-- messages travelling along edges -->
-          <circle class="pulse" r="4"><animateMotion dur="3.2s" repeatCount="indefinite" begin="2s" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines=".4 0 .2 1"><mpath href="#e1"/></animateMotion></circle>
-          <circle class="pulse" r="4"><animateMotion dur="3.6s" repeatCount="indefinite" begin="2.6s" keyPoints="1;0" keyTimes="0;1" calcMode="spline" keySplines=".4 0 .2 1"><mpath href="#e2"/></animateMotion></circle>
-          <circle class="pulse" r="4"><animateMotion dur="3s" repeatCount="indefinite" begin="3.1s" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines=".4 0 .2 1"><mpath href="#e3"/></animateMotion></circle>
+          <circle class="pulse" r="4" opacity="0"><set attributeName="opacity" to="1" begin="2s"/><animateMotion dur="3.2s" repeatCount="indefinite" begin="2s" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines=".4 0 .2 1"><mpath href="#e1"/></animateMotion></circle>
+          <circle class="pulse" r="4" opacity="0"><set attributeName="opacity" to="1" begin="2.6s"/><animateMotion dur="3.6s" repeatCount="indefinite" begin="2.6s" keyPoints="1;0" keyTimes="0;1" calcMode="spline" keySplines=".4 0 .2 1"><mpath href="#e2"/></animateMotion></circle>
+          <circle class="pulse" r="4" opacity="0"><set attributeName="opacity" to="1" begin="3.1s"/><animateMotion dur="3s" repeatCount="indefinite" begin="3.1s" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines=".4 0 .2 1"><mpath href="#e3"/></animateMotion></circle>
         </g></svg>
         <figcaption>Fig. 1 — Agents, shared memory</figcaption>
       </figure>
     </div>
   </section>
 
+
+  <section class="section" id="interests">
+    <div class="wrap section-grid">
+      <div class="reveal">
+        <p class="section-label">Focus</p>
+        <h2>Research interests</h2>
+      </div>
+      <ul class="interests section-body reveal">
+        <li><h3>Agent memory</h3><p>How agents store, retrieve, and use what they have experienced.</p></li>
+        <li><h3>Multi-agent systems</h3><p>How agents coordinate, share context, and divide work.</p></li>
+        <li><h3>Self-evolving agents</h3><p>Agents that keep improving through their own experience.</p></li>
+      </ul>
+    </div>
+  </section>
 
   <section class="section" id="research">
     <div class="wrap section-grid">
