@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Jingxuan Feng</title>
-<meta name="description" content="Jingxuan Feng is an undergraduate student at Xi’an Jiaotong-Liverpool University working on agent memory, multi-agent systems, and post-training.">
+<meta name="description" content="Jingxuan Feng is an undergraduate student at Xi’an Jiaotong-Liverpool University working on agent memory, multi-agent systems, and self-evolving agents.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -106,7 +106,7 @@ a { color: inherit; }
 .nav .btn { height: 34px; padding: 0 14px; font-size: .85rem; color: var(--ink); }
 
 /* ---------- Hero ---------- */
-.hero { padding-block: clamp(56px, 10vw, 120px) clamp(48px, 7vw, 88px); }
+.hero { padding-block: clamp(56px, 10vw, 120px) clamp(64px, 9vw, 112px); }
 .hero-grid { display: grid; gap: clamp(40px, 6vw, 72px); align-items: center; }
 @media (min-width: 900px) { .hero-grid { grid-template-columns: 1.15fr 1fr; } }
 .hero-copy { min-width: 0; }
@@ -132,10 +132,11 @@ h1 em { font-style: italic; font-weight: 300; color: var(--muted); }
 
 /* Illustration panel */
 .illus {
-  position: relative; aspect-ratio: 1 / 1; max-width: 100%; border-radius: 24px;
+  position: relative; aspect-ratio: 4 / 5; width: 100%; max-width: 440px; justify-self: center; margin: 0; border-radius: 24px;
   background: var(--illus-bg); overflow: hidden;
 }
 .illus svg { width: 100%; height: 100%; display: block; }
+.illus .portrait { width: 100%; height: 100%; object-fit: cover; }
 .illus .stroke { fill: none; stroke: var(--ink); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 .illus .edge { fill: none; stroke: var(--ink); stroke-width: 1.6; stroke-linecap: round; }
 .illus .fill-clay { fill: var(--clay); }
@@ -147,14 +148,6 @@ h1 em { font-style: italic; font-weight: 300; color: var(--muted); }
   position: absolute; left: 20px; bottom: 16px; font-family: var(--mono); font-size: .72rem;
   letter-spacing: .06em; text-transform: uppercase; color: var(--muted);
 }
-
-/* ---------- Facts strip ---------- */
-.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0 32px; margin: 0; padding: 0; }
-.facts > div { border-top: 1px solid var(--line); padding-block: 18px 6px; min-width: 0; }
-.facts dt { font-family: var(--mono); font-size: .74rem; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
-.facts dd { margin: 0; font-size: 1rem; }
-.facts a { text-underline-offset: 3px; text-decoration-color: var(--line); }
-.facts a:hover { text-decoration-color: var(--clay); }
 
 /* ---------- Sections ---------- */
 .section { padding-block: clamp(64px, 9vw, 120px); border-top: 1px solid var(--line); }
@@ -177,36 +170,38 @@ h2 {
 .empty-state p { margin: 0; color: var(--muted); max-width: 48ch; }
 @keyframes breathe { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(.6); opacity: .55; } }
 
-/* Journey */
-.journey { list-style: none; margin: 0; padding: 0; }
-.journey li {
-  display: grid; grid-template-columns: 44px 1fr; gap: 6px 20px;
-  padding-block: 28px; border-bottom: 1px solid var(--line);
+/* Journey: a single line threads the logos, oldest at the bottom */
+.journey { list-style: none; margin: 0; padding: 0; position: relative; }
+.journey li:not(:last-child)::before,
+.journey li:not(:last-child)::after {
+  content: ""; position: absolute; left: 21px; top: 44px; height: calc(100% - 44px + 40px); width: 1px; background: var(--line);
 }
-.journey li:first-child { padding-top: 4px; }
-@media (min-width: 700px) { .journey li { grid-template-columns: 44px 1fr 170px; } }
-.logo { width: 44px; height: 44px; border-radius: 12px; background: #FFFFFF; border: 1px solid var(--line); display: grid; place-items: center; }
-.logo img { width: 26px; height: 26px; object-fit: contain; }
-.journey .body { min-width: 0; }
-.journey h3 { font-family: var(--serif); font-weight: 500; font-size: 1.4rem; letter-spacing: -0.01em; line-height: 1.25; margin: 0 0 4px; }
+.journey li:not(:last-child)::after {
+  background: var(--clay); transform-origin: top; transform: scaleY(1);
+  transition: transform .9s var(--ease); transition-delay: calc(var(--i, 0) * 600ms + 200ms);
+}
+.js .journey:not(.in) li::after { transform: scaleY(0); }
+.journey li { position: relative; display: grid; grid-template-columns: 44px 1fr; gap: 2px 20px; align-items: start; }
+.journey li + li { margin-top: 40px; }
+.logo { position: relative; z-index: 1; width: 44px; height: 44px; border-radius: 50%; background: #FFFFFF; box-shadow: 0 0 0 6px var(--ivory), 0 0 0 7px var(--line); display: grid; place-items: center; }
+.logo img { width: 24px; height: 24px; object-fit: contain; }
+.journey .body { min-width: 0; padding-top: 2px; }
+.journey time { display: block; font-family: var(--mono); font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-variant-numeric: tabular-nums; margin-bottom: 4px; }
+.journey h3 { font-family: var(--serif); font-weight: 500; font-size: 1.45rem; letter-spacing: -0.01em; line-height: 1.2; margin: 0 0 6px; }
 .journey h3 a { text-decoration: none; background: linear-gradient(var(--clay), var(--clay)) 0 100% / 0 1px no-repeat; transition: background-size .35s var(--ease); }
 .journey h3 a:hover { background-size: 100% 1px; }
-.journey .role { font-weight: 500; margin: 0 0 6px; font-size: .98rem; }
-.journey .desc { color: var(--muted); margin: 0; max-width: 60ch; }
-.journey time {
-  grid-column: 2; font-family: var(--mono); font-size: .8rem; color: var(--muted);
-  font-variant-numeric: tabular-nums; letter-spacing: .02em;
-}
-@media (min-width: 700px) { .journey time { grid-column: 3; grid-row: 1; text-align: right; padding-top: 6px; } }
+.journey .desc { margin: 0; font-size: .9rem; color: var(--muted); max-width: 56ch; }
+.journey .desc b { font-weight: 500; color: var(--ink); }
 
 /* Quote */
 .quote { padding-block: clamp(80px, 12vw, 150px); border-top: 1px solid var(--line); }
 .quote blockquote {
   margin: 0 auto; max-width: 22em; font-family: var(--serif); font-weight: 300;
-  font-size: clamp(1.7rem, 3.8vw, 2.7rem); line-height: 1.22; letter-spacing: -0.02em; text-align: center; text-wrap: balance;
+  font-size: clamp(2.4rem, 6vw, 4.2rem); line-height: 1.22; letter-spacing: -0.02em; text-align: center; text-wrap: balance;
 }
 .quote blockquote::before { content: "“"; display: block; color: var(--clay); font-size: 1.8em; line-height: .6; margin-bottom: 18px; }
 .quote p { text-align: center; color: var(--muted); margin: 28px 0 0; font-size: .95rem; }
+.quote i { font-family: var(--serif); font-size: 1.05em; }
 .quote cite { font-style: italic; font-family: var(--serif); font-size: 1.05em; }
 
 /* Footer */
@@ -252,9 +247,9 @@ h2 {
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow rise" style="--i:0">Agents · Memory · Language models</p>
+        <p class="eyebrow rise" style="--i:0">Agents · Memory · Self-evolving</p>
         <h1 class="rise" style="--i:1">Jingxuan Feng</h1>
-        <p class="lede rise" style="--i:2">I’m an undergraduate in Information and Computing Science at <a href="https://www.xjtlu.edu.cn/en/study/undergraduate/information-and-computing-science" target="_blank" rel="noreferrer">Xi’an Jiaotong-Liverpool University</a>. My research interests are agent memory and multi-agent systems, and I’m exploring post-training methods for more capable, adaptive agents.</p>
+        <p class="lede rise" style="--i:2">I’m an undergraduate in Information and Computing Science at <a href="https://www.xjtlu.edu.cn/en/study/undergraduate/information-and-computing-science" target="_blank" rel="noreferrer">Xi’an Jiaotong-Liverpool University</a>. My research interests are agent memory and multi-agent systems, and I’m exploring self-evolving agents that keep improving through their own experience.</p>
         <p class="note rise" style="--i:3"><strong>Open to research opportunities.</strong> Feel free to reach out.</p>
         <div class="actions rise" style="--i:4">
           <a class="btn primary" href="mailto:jingxuan.f36@gmail.com">Email</a>
@@ -263,8 +258,10 @@ h2 {
         </div>
       </div>
 
+      <!-- Portrait slot. To use a photo, replace the <svg> below with:
+           <img class="portrait" src="/portrait.jpg" alt="Jingxuan Feng"> and remove the figcaption. -->
       <figure class="illus rise" style="--i:3" aria-label="Illustration: three agents sharing a common memory">
-        <svg viewBox="0 0 400 400" role="img" aria-hidden="true"><g transform="translate(0 -22)">
+        <svg viewBox="0 -50 400 500" role="img" aria-hidden="true"><g transform="translate(0 -10)">
           <!-- edges from agents to shared memory -->
           <path class="edge draw" id="e1" style="--len:160;--d:500" d="M110 118 C 150 150, 170 170, 186 196"/>
           <path class="edge draw" id="e2" style="--len:160;--d:650" d="M300 132 C 260 160, 238 180, 222 200"/>
@@ -292,14 +289,6 @@ h2 {
     </div>
   </section>
 
-  <section class="wrap" aria-label="At a glance" style="padding-bottom: clamp(56px, 8vw, 96px)">
-    <dl class="facts reveal">
-      <div><dt>Based at</dt><dd>Xi’an Jiaotong-Liverpool University</dd></div>
-      <div><dt>Studying</dt><dd>BSc Information and Computing Science</dd></div>
-      <div><dt>Interests</dt><dd>Agent memory, multi-agent systems, post-training</dd></div>
-      <div><dt>Contact</dt><dd><a href="mailto:jingxuan.f36@gmail.com">jingxuan.f36@gmail.com</a></dd></div>
-    </dl>
-  </section>
 
   <section class="section" id="research">
     <div class="wrap section-grid">
@@ -325,33 +314,30 @@ h2 {
         <p class="section-label">Education &amp; experience</p>
         <h2>Journey</h2>
       </div>
-      <ol class="journey section-body">
-        <li class="reveal">
-          <span class="logo"><img src="/h3c.ico" alt="" width="26" height="26"></span>
+      <ol class="journey section-body reveal">
+        <li style="--i:0">
+          <span class="logo"><img src="/h3c.ico" alt="" width="24" height="24"></span>
           <div class="body">
+            <time>Jun – Aug 2026</time>
             <h3><a href="https://www.h3c.com/en/" target="_blank" rel="noreferrer">H3C Group</a></h3>
-            <p class="role">Large Language Model Algorithm Intern</p>
-            <p class="desc">Worked on emotion-conditioned generation for conversational agents.</p>
+            <p class="desc"><b>LLM Algorithm Intern</b> · Emotion-conditioned generation for conversational agents.</p>
           </div>
-          <time>Jun – Aug 2026</time>
         </li>
-        <li class="reveal">
-          <span class="logo"><img src="/inspur.ico" alt="" width="26" height="26"></span>
+        <li style="--i:1">
+          <span class="logo"><img src="/inspur.ico" alt="" width="24" height="24"></span>
           <div class="body">
+            <time>Summer 2025</time>
             <h3>Inspur Ether Talent Program</h3>
-            <p class="role">Program Participant</p>
-            <p class="desc">Developed LLM workflows for task decomposition and progress tracking.</p>
+            <p class="desc"><b>Program Participant</b> · LLM workflows for task decomposition and progress tracking.</p>
           </div>
-          <time>Summer 2025</time>
         </li>
-        <li class="reveal">
-          <span class="logo"><img src="/xjtlu.ico" alt="" width="26" height="26"></span>
+        <li style="--i:2">
+          <span class="logo"><img src="/xjtlu.ico" alt="" width="24" height="24"></span>
           <div class="body">
+            <time>Sep 2024 – Jun 2028</time>
             <h3><a href="https://www.xjtlu.edu.cn/en/study/undergraduate/information-and-computing-science" target="_blank" rel="noreferrer">Xi’an Jiaotong-Liverpool University</a></h3>
-            <p class="role">BSc Information and Computing Science</p>
-            <p class="desc">Undergraduate study in computing, artificial intelligence, and software systems.</p>
+            <p class="desc"><b>BSc Information and Computing Science</b> · Computing, artificial intelligence, and software systems.</p>
           </div>
-          <time>Sep 2024 – Jun 2028</time>
         </li>
       </ol>
     </div>
@@ -359,8 +345,8 @@ h2 {
 
   <section class="quote" aria-label="Quotation">
     <div class="wrap reveal">
-      <blockquote>It is not because things are difficult that we do not dare; it is because we do not dare that they are difficult.</blockquote>
-      <p>Seneca, <cite>Moral Letters to Lucilius</cite>, Letter 104</p>
+      <blockquote>Fortune favors the bold.</blockquote>
+      <p><i lang="la">Audentes fortuna iuvat</i> · Virgil, <cite>Aeneid</cite>, X.284</p>
     </div>
   </section>
 </main>
@@ -410,7 +396,6 @@ h2 {
     });
   }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
   items.forEach(function (el, i) {
-    el.style.transitionDelay = (el.closest('.journey') ? (i % 3) * 90 : 0) + 'ms';
     io.observe(el);
   });
 })();
